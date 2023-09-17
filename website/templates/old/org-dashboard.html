@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>org-dash</title>
+
+  <!--    Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../static/css/styles.css" />
+  <!--    Bootstrap CSS -->
+</head>
+
+<body>
+  <script type="text/javascript" src="../static/js/form.js"></script>
+ <!--Navbar Start-->
+ <nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"
+      ><img
+        height="50"
+        src="../static/assets/downtime.png"
+        alt="downtime logo"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- nav item list -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#join">Join</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#upcoming-events"
+            >UpcomingEvents</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#available-items"
+            >AvailableItems</a
+          >
+        </li>
+      </ul>
+      <!-- End nav item list -->
+
+      <!--          Search form -->
+      <!-- <form role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">
+          Search
+        </button>
+      </form> -->
+      <!--          End search form -->
+
+      <div class="d-flex auth-btns">
+        <button type="button" class="btn btn-outline-primary">Login</button>
+        <button type="button" class="btn btn-primary">Signup</button>
+      </div>
+    </div>
+  </div>
+</nav>
+<!--Navbar END-->
+
+  <div class="container">
+    <h2 style="text-align: center">Welcome back Dave</h2>
+    <h3 style="text-align: center">Organizer</h3>
+    <div class="row">
+      <div class="col-4">
+        <!-- <h4>Total Lifetime Volunteer Hours</h4>
+          <h3 class="tot-hours">50 Hours</h3> -->
+        <!-- card start -->
+        <div style="text-align: left;">
+          <h4>Previously Organized</h4>
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="..." class="img-fluid rounded-start" alt="..." />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Title</h5>
+                  <p class="card-text">
+                    This is where the description text goes.
+                  </p>
+                  <div class="row" style="text-align: left;">
+                    <p>Sat, Sept 28 9:00 - 1:00pm EST.</p>
+                    <!-- <p class="col-6">Start: 1500</p>
+                  <p class="col-6">End: 2000</p> -->
+                    <p>Orlando, FL. UCF Campus</p>
+                  </div>
+
+                  <p class="card-text" style="text-align: left;">
+                    <small class="text-body-secondary">20 Volunteered</small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <h4>Upcoming events</h4>
+        <!-- card start -->
+        <div class="card mb-3" style="max-width: 540px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="..." class="img-fluid rounded-start" alt="..." />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text" style="text-align: left;">
+                  This is where the description text goes.
+                </p>
+                <div class="row" style="text-align: left;">
+                  <p>Sat, Sept 28 9:00 - 1:00pm EST.</p>
+                  <!-- <p class="col-6">Start: 1500</p>
+                  <p class="col-6">End: 2000</p> -->
+                  <p>Orlando, FL. UCF Campus</p>
+                </div>
+
+                <p class="card-text">
+                  <small class="text-body-secondary">20 Volunteers needed</small
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <h4>Organize an event</h4>
+          <button onclick="displayForm('organizerForm', true)">New Volunteer Opportunity</button>
+        </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- end container div -->
+    </div>
+
+    <!-- Events end -->
+
+    <!-- Begin events -->
+
+    <!-- End events -->
+
+    
+  <!-- Organizer Form -->
+  <div id="organizerForm" style="display: none;">
+    <div class="modal fade show" id="exampleCentralModal4" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: block; background-color:	rgba(128,128,128, 0.5)" aria-modal="true" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Organize an event</h5>
+            <button type="button" class="btn-close" aria-label="Close" onclick="displayForm('organizerForm', false)"></button>
+          </div>
+          <div class="modal-body p-4">
+            <form>
+              <div class="row">
+                <div class="col col-6">
+                  <!-- Event Title -->
+                  <div class="form-outline mb-3">
+                    <input name="eventTitle" type="text" id="form6Example3" class="form-control">
+                    <label class="form-label" for="form6Example3" style="margin-left: 0px;">Event Title</label>
+                  </div>
+
+                  <!-- Date and times -->
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-outline">
+                        <input name="date" type="date" id="date" class="form-control">
+                        <label class="form-label" for="date" style="margin-left: 0px;">Date</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-outline">
+                        <input name="time" type="time" id="time" class="form-control">
+                        <label class="form-label" for="time" style="margin-left: 0px;">Start Time</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-outline">
+                        <input name="durationHours" type="number" id="number" class="form-control">
+                        <label class="form-label" for="duration" style="margin-left: 0px;">Duration</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Number input -->
+                  <div class="form-outline mb-3">
+                    <input name="volunteerNumber" type="number" id="volunteerNumber" class="form-control">
+                    <label class="form-label" for="volunteerNumber" style="margin-left: 0px;"># Volunteers needed</label>
+                  </div>
+                </div>
+                <div class="col col-6">
+                  <!-- Picture goes here -->
+                  <div>
+                    <input name="eventImage" type="file" id="eventImage" class="form-control">
+                    <!-- <label class="form-label" for="eventImage" style="margin-left: 0px;"># Volunteers needed</label> -->
+
+                  </div>
+                </div>
+                <!--Description-->
+                <div class="mb-3">
+                  <label name="description" for="description" class="col-form-label">Description</label>
+                  <textarea class="form-control" id="description"></textarea>
+                </div>
+              </div>
+              <div class="form-outline mb-3"><button type="submit" class="btn btn-primary btn-block">Schedule Event</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Organizer Form END-->
+
+    <!--    Boostatrap JS-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <!--End Bootstrap JS-->
+  </body>
+</html>

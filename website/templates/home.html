@@ -1,0 +1,204 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %} {% block style %} h1, h4 { font-weight: bold; margin-bottom: 2rem; } .welcome-text { padding: 5%; padding-top: 12%; } .auth-btns button, .roles button { margin: .5rem; } .join-host h4 { text-align:
+center; } .section { padding: 3%; } .join-host .col-4 { margin-top: 2%; text-align: center; } .roles img { width: 100%; clip-path: circle(); } .material-symbols-outlined { vertical-align: top; } .card { padding: 0; } {% endblock %} {% block nav %}
+<style>
+  h1,
+  h4 {
+    color: #174662;
+  }
+</style>
+<!--Navbar Start-->
+<nav class="navbar navbar-expand-lg sticky-top" style="background-color: white;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img height="50" src="../static/assets/downtime.png" alt="downtime logo" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- nav item list -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#join">Join</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#upcoming-events">Upcoming Events</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#available-items"
+            >Volunteer Rewards</a
+          >
+        </li>
+      </ul>
+      <!-- End nav item list -->
+
+      <!--          Search form -->
+      <!-- <form role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form> -->
+      <!--          End search form -->
+
+      <div class="d-flex auth-btns">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          style="color: #ff675b; border-color: #ff675b"
+          onclick="window.location.href='{{url_for('auth.login')}}'"
+        >
+          Login
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          style="background-color: #16ade7;"
+          onclick="window.location.href='{{url_for('auth.signup')}}'"
+        >
+          Signup
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<!--Navbar END-->
+{% endblock %} {% block content %}
+<div class="container">
+  <div id="about" class="row welcome section">
+    <div class="welcome-text col-6">
+      <!-- heading -->
+      <h1>Welcome to Downtime</h1>
+      <h5 style="color: #ff675b">The helping hand for local communities</h5>
+      <p>
+        At downtime, we create a platform to help improve local communities by
+        providing opportunitiesfor both individuals looking to volunteer and
+        organizations that are looking to host volunteering events.
+      </p>
+    </div>
+    <!-- end heading -->
+    <img class="col-6" src="../static/assets/volunteer2.jpg" />
+  </div>
+
+  <!-- volunteer, organize, sponsor volunteer event start -->
+  <div class="roles" id="join">
+    <div class="row join-host section">
+      <h4>How you can participate?</h4>
+      <div class="col-4">
+        <h3>Volunteer</h3>
+        <p>See what events are happening</p>
+        <img src="../static/assets/volunteer4.jpg" />
+      </div>
+      <div class="col-4">
+        <h3>Organize</h3>
+        <p>Find volunteers for your community needs</p>
+        <img src="../static/assets/organize.jpg" />
+      </div>
+      <div class="col-4">
+        <h3>Sponsor</h3>
+        <p>Find volunteers for your community needs</p>
+        <img src="../static/assets/sponsor.jpg" />
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <button
+        class="col-2 btn btn-outline-secondary"
+        style="color: #ff675b; border-color: #ff675b"
+        onclick="window.location.href='{{url_for('auth.login')}}'"
+      >
+        Login
+      </button>
+      <button
+        class="col-2 btn btn-secondary"
+        onclick="window.location.href='{{url_for('auth.signup')}}'"
+        style="background-color: #16ade7;"
+      >
+        Signup
+      </button>
+    </div>
+  </div>
+  <!-- join or host event end -->
+
+  <div class="section upcoming" id="upcoming-events">
+    <h4>See upcoming events!</h4>
+        {% if not events: %}
+      <p>There's no upcoming volunteer events...</p>
+    {% endif %}
+    <div class="row">
+    <!-- Events begin -->
+    {% for event in events: %}
+    <div class="card col-3">
+      <a style="width: 60%; height: 60%; position: absolute; text-decoration: none;"></a>
+          <img src="../static/assets/volunteer4.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <div class="card-body">
+              <h5 class="card-title">{{ event.host_name }}</h5>
+              <p class="card-text">
+                {{ event.description[0:100] }}
+              </p>
+              <div class="row">
+                <p class="card-text col">
+                  <span class="material-symbols-outlined"> date_range </span> {{ event.start_date }}
+                </p>
+                <p class="card-text col">
+                  <span class="material-symbols-outlined">
+                  volunteer_activism
+                </span> {{ event.duration }} hours
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- End item -->
+    </div>
+    {% endfor %}
+      </div>
+  </div>
+
+  <!-- End events -->
+
+  <!-- begin available items -->
+  <div class="section available" id="available-items">
+    <h4>See available items!</h4>
+            {% if not prizes: %}
+      <p>There's no available rewards...</p>
+    {% endif %}
+    <div class="row">
+      <!-- Item -->
+      {% for prize in prizes: %}
+      <div class="card col-3">
+        <img src="../static/assets/volunteer4.jpg" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <div class="card-body">
+            <h5 class="card-title">{{ prize.prize_name }}</h5>
+            <p class="card-text">
+              {{ prize.description [0:100]}}
+            </p>
+            <div class="row">
+              <p class="card-text col" style="color: #ff675b">
+                <span class="material-symbols-outlined">
+                    volunteer_activism
+                  </span> {{ prize.hours_need }} hours need
+              </p>
+              <p class="card-text col" style="color: #16ade7">
+                <span class="material-symbols-outlined"> inventory_2 </span> {{ prize.quantity }} available
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- End item -->
+      </div>
+      {% endfor %}
+    </div>
+    <!-- end container div -->
+  </div>
+  {% endblock %}
+  </div>
+  </div>

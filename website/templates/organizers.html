@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Downtime Dashboard</title>
+
+  <!--    Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../static/css/styles.css" />
+  <!--    Bootstrap CSS -->
+</head>
+
+<body>
+  <script type="text/javascript" src="../static/js/form.js"></script>
+  <!--Navbar Start-->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img height="50" src="../static/assets/downtime.png" alt="downtime logo" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- nav item list -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" style="color: #16ade7 ;" aria-current="page" href="{{url_for('volunteers.home')}}">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="color: #ff675b ;" aria-current="page" href="{{url_for('organizers.home')}}">Organize</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="color: #f8b92a;" aria-current="page" href="{{url_for('sponsors.home')}}">Sponsor</a
+          >
+        </li>
+      </ul>
+      <!-- End nav item list -->
+
+      <!--          Search form -->
+      <!-- <form role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form> -->
+      <!--          End search form -->
+
+      <div class="d-flex auth-btns">
+        <div style="color: #16ade7; border-color: #16ade7;">
+        <button style="color: #16ade7; border-color: #16ade7;"
+          type="button"
+          class="btn btn-outline-primary"
+          onclick="window.location.href='{{url_for('auth.logout')}}'"
+        >
+          Logout
+        </button></div>
+
+      </div>
+    </div>
+  </div>
+</nav>
+<!--Navbar END-->
+</div>
+
+  <!-- Organizer Dashboard -->
+  <div id="organizerDash" style="display: block;">
+    <div class="container">
+      <div style="margin-bottom: 10px; width: 100%; height: min-content; padding: 20px 0px; background-color: rgb(23, 70, 98); border-radius: 20px 20px 0px 0px; border-bottom: 5px solid #ff675b;">
+        <h2 style="text-align: center; font-weight: 700; color: white;">Welcome Back, {{ name }} 👋</h2>
+      </div>
+      <h3 style="text-align: center; color: #ff675b; margin-bottom: 60px;">Organizer</h3>
+      <div class="row">
+        <div class="col-4">
+          <!-- <h4>Total Lifetime Volunteer Hours</h4>
+<h3 class="tot-hours">50 Hours</h3> -->
+          <!-- card start -->
+          <div style="text-align: left;">
+            <div style="outline: solid 1px black; padding: 5px; border-radius:5px;">
+            <h4 style="color: rgb(23, 70, 98) ; font-weight: 600">Previously Organized</h4>
+            <div class="col">
+              <!-- Card #1 Start -->
+              {% if not previous_events: %}
+            <p>There's no previous events...</p>
+            {% endif %}
+              {% for event1 in previous_events: %}
+              <div class="card mb-3" style="max-width: 540px">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="" class="" alt="..." />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{event1.host_name}}</h5>
+                      <p class="card-text">
+                        {{event1.description}}
+                      </p>
+                      <div class="row" style="text-align: left;">
+                        <p><p>{{event1.start_date}} ({{event1.duration}} Hours).</p><br>
+                          Miami, FL.</p>
+                      </div>
+
+                      <p class="card-text" style="text-align: left;">
+                        <small class="text-body-secondary">20 Volunteered</small>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              <!-- Card #2 Start-->
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <h4 style="color: rgb(23, 70, 98) ;">Upcoming events</h4>
+          <!-- card start -->
+          {% if not future_events: %}
+            <p>There's no Upcoming events...</p>
+          {% endif %}
+          {% for event2 in future_events: %}
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="" class="" alt="..." />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{event2.host_name}}</h5>
+                  <p class="card-text" style="text-align: left;">
+                    {{event2.description}}
+                  </p>
+                  <div class="row" style="text-align: left;">
+                    <p>{{event2.start_date}} ({{event2.duration}} Hours).</p>
+                    <!-- <p class="col-6">Start: 1500</p>
+<p class="col-6">End: 2000</p> -->
+                    <p>Miami, FL</p>
+                  </div>
+
+                  <p class="card-text">
+                    <small class="text-body-secondary">20 Volunteers needed</small
+>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="col-4">
+          <h4 style="color: rgb(23, 70, 98) ;">Organize an event</h4>
+          <button style="color: #ff675b; background-color: white; border-radius: 5px; border-color: #ff675b;" onclick="displayForm('organizerForm', true)">New Volunteer Opportunity</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div id="sponsorDash" style="display:none;">
+    <div class="container">
+      <h2 style="text-align: center">Welcome back Dave</h2>
+      <h3 style="text-align: center">Sponsor</h3>
+      <div class="row">
+        <div class="col-6">
+
+          <!-- card start -->
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="..." class="img-fluid rounded-start" alt="..." />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Nike Shoes</h5>
+                  <p class="card-text" style="text-align: left;">
+                    This is a pair of some incredible Nike shoes!
+                  </p>
+                  <div class="row" style="text-align: left;">
+                    <p>20 left</p>
+                    <p>Cost 5 hours</p>
+                  </div>
+
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <h4>Donate a new item</h4>
+          <button onclick="displayForm('sponsorForm', true)">Donate</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- end container div -->
+  </div>
+
+  <!-- end container div -->
+  </div>
+
+  <!-- Events end -->
+
+  <!-- Begin events -->
+
+  <!-- End events -->
+
+  <!-- Organizer Form -->
+  <div id="organizerForm" style="display: none;">
+    <div class="modal fade show" id="exampleCentralModal4" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: block; background-color:	rgba(128,128,128, 0.5)" aria-modal="true" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Organize an event</h5>
+            <button type="button" class="btn-close" aria-label="Close" onclick="displayForm('organizerForm', false)"></button>
+          </div>
+          <div class="modal-body p-4">
+            <form method="POST">
+              <div class="row">
+                <div class="col col-6">
+                  <!-- Event Title -->
+                  <div class="form-outline mb-3">
+                    <label class="form-label" for="form6Example3" style="margin-left: 0px;">Event Title</label>
+                    <input name="eventTitle" type="text" id="form6Example3" class="form-control" required>
+                  </div>
+
+                  <!-- Date and times -->
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-outline">
+                        <label class="form-label" for="date" style="margin-left: 0px;">Date</label>
+                        <input name="date" type="datetime-local" id="date" class="form-control" required>
+                      </div>
+                    </div>
+                    <!-- <div class="col">
+                      <div class="form-outline">
+                        <input name="time" type="time" id="time" class="form-control">
+                        <label class="form-label" for="time" style="margin-left: 0px;">Start Time</label>
+                      </div>
+                    </div> -->
+                    <div class="col">
+                      <div class="form-outline">
+                        <label class="form-label" for="duration" style="margin-left: 0px;">Duration</label>
+                        <input name="durationHours" type="number" id="number" class="form-control" required>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Number input -->
+                  <div class="form-outline mb-3">
+                    <label class="form-label" for="volunteerNumber" style="margin-left: 0px;"># Volunteers needed</label>
+                    <input name="volunteerNumber" type="number" id="volunteerNumber" class="form-control" required>
+                  </div>
+                </div>
+                <div class="col col-6">
+                  <!-- Picture goes here -->
+                  <div>
+                    <input name="eventImage" type="file" id="eventImage" class="form-control">
+                  </div>
+                </div>
+                <!--Description-->
+                <div class="mb-3">
+                  <label for="description" class="col-form-label">Description</label>
+                  <textarea name="description" class="form-control" id="description" required></textarea>
+                </div>
+              </div>
+              <div class="form-outline mb-3"><button type="submit" class="btn btn-primary btn-block" value="event">Schedule Event</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Organizer Form END-->
+
+  <!--Organizer Form END-->
+
+  <!--    Boostatrap JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!--End Bootstrap JS-->
+</body>
+
+</html>
