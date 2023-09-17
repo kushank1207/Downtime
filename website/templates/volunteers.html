@@ -191,10 +191,10 @@
           <ul class="list-group list-group-flush">
             {% for index, item in available_items: %}
             <li onclick="displayForm('itemForm', true)" class="list-group-item">{{ item.prize_name }}
-              <div class="display: none;" id="sponsor-{{index}}">{{ item.sponsor }}</div>
-              <div class="display: none;" id="description-{{index}}">{{ item.description }}</div>
-              <div class="display: none;" id="item_name-{{index}}">{{ item.prize_name }}</div>
-              <div class="display: none;" id="hours_need-{{index}}">{{ item.hours_need }}</div>
+              <div class="display: none;" class="sponsor">{{ item.sponsor }}</div>
+              <div class="display: none;" class="description">{{ item.description }}</div>
+              <div class="display: none;" class="item_name">{{ item.prize_name }}</div>
+              <div class="display: none;" class="item_id">{{ item.id }}</div>
             </li>
             {% endfor %}
           </ul>
@@ -313,7 +313,7 @@
 
               <div class="modal-footer">
 
-                <button style="background-color: #16ade7; border-color: #16ade7;" type="button" class="btn btn-primary" id="" >Purchase Item</button>
+                <button style="background-color: #16ade7; border-color: #16ade7;" type="button" class="btn btn-primary" id="item_id-m" >Purchase Item</button>
               </div>
             </div>
           </div>
