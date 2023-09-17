@@ -30,6 +30,9 @@ function transferDataToItemModal(element, x, y) {
         if (child.className == "description") {
             document.getElementById("description-m").innerText = child.innerText;
         }
+        if (child.className == "item_id") {
+            document.getElementById("item_id-m").innerText = child.innerText;
+        }
     }
 }
 
