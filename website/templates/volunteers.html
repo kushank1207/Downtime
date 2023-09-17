@@ -134,7 +134,7 @@
               </div>
             </div>
       </div>
-     {% endfor %}
+      {% endfor %}
 
     </div>
     </div>
@@ -145,9 +145,8 @@
       <h4 style="color: rgb(23, 70, 98) ;">Upcoming events</h4>
       <!-- card start -->
       {% if not future_events: %}
-            <p>There's no upcoming events...</p>
-      {% endif %}
-    {% for event in future_events: %}
+      <p>There's no upcoming events...</p>
+      {% endif %} {% for event in future_events: %}
       <div class="card mb-3" style="max-width: 540px">
         <div class="row g-0">
           <div class="col-md-4">
@@ -180,8 +179,7 @@
       <h4 style="color: rgb(23, 70, 98) ;">Credit Hours</h4>
       {% if not current_user.credit_hours: %}
       <h3 class="cred-hrs" style="color: #16ade7;"><em>0</em> hours</h3>
-      {%endif%}
-      {% if current_user.credit_hours: %}
+      {%endif%} {% if current_user.credit_hours: %}
       <h3 class="cred-hrs" style="color: #16ade7;"><em>current_user.credit_hours</em> hours</h3>
       {%endif%}
       <div>
@@ -189,12 +187,12 @@
 
         <div class="card mb-3" style="max-width: 540px">
           <ul class="list-group list-group-flush">
-            {% for index, item in available_items: %}
-            <li onclick="displayForm('itemForm', true)" class="list-group-item">{{ item.prize_name }}
-              <div class="display: none;" class="sponsor">{{ item.sponsor }}</div>
-              <div class="display: none;" class="description">{{ item.description }}</div>
-              <div class="display: none;" class="item_name">{{ item.prize_name }}</div>
-              <div class="display: none;" class="item_id">{{ item.id }}</div>
+            {% for item in available_items: %}
+            <li onclick="transferDataToItemModal(this,'itemForm', true)" class="list-group-item">{{ item.prize_name }}
+              <div style="display: none;" class="sponsor">{{ item.sponsor }}</div>
+              <div style="display: none;" class="description">{{ item.description }}</div>
+              <div style="display: none;" class="item_name">{{ item.prize_name }}</div>
+              <div style="display: none;" class="item_id">{{ item.id }}</div>
             </li>
             {% endfor %}
           </ul>
@@ -313,7 +311,7 @@
 
               <div class="modal-footer">
 
-                <button style="background-color: #16ade7; border-color: #16ade7;" type="button" class="btn btn-primary" id="item_id-m" >Purchase Item</button>
+                <button style="background-color: #16ade7; border-color: #16ade7;" type="button" class="btn btn-primary" id="item_id-m">Purchase Item</button>
               </div>
             </div>
           </div>
