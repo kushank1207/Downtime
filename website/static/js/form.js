@@ -33,8 +33,14 @@ function transferDataToItemModal(element, x, y) {
         if (child.className == "item_id") {
             document.getElementById("item_id-m").value = child.innerText;
         }
-        if (child.className == "") {
-
+        if (child.className == "sponsor") {
+            document.getElementById("sponsor-m").value = child.innerText;
+        }
+        if (child.className == "item_name") {
+            document.getElementById("item_name-m").value = child.innerText;
+        }
+        if (child.className == "hours_need") {
+            document.getElementById("hours_need-m").value = child.innerText;
         }
     }
 }
