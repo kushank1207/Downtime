@@ -189,10 +189,14 @@
 
         <div class="card mb-3" style="max-width: 540px">
           <ul class="list-group list-group-flush">
-            <li onclick="displayForm('itemForm', true)" class="list-group-item">Nike Shoes</li>
-            <li onclick="displayForm('itemForm', true)" class="list-group-item">Mentorship</li>
-            <li onclick="displayForm('itemForm', true)" class="list-group-item">T-Shirt</li>
-            <li onclick="displayForm('itemForm', true)" class="list-group-item">Pants</li>
+            {% for item in available_items: %}
+            <li onclick="displayForm('itemForm', true)" class="list-group-item">{{ item.prize_name }}
+              <div class="display: none;" id="sponsor">{{ item.sponsor }}</div>
+              <div class="display: none;" id="description">{{ item.description }}</div>
+              <div class="display: none;" id="item_name">{{ item.prize_name }}</div>
+              <div class="display: none;" id="hours_need">{{ item.hours_need }}</div>
+            </li>
+            {% endfor %}
           </ul>
         </div>
         <!-- some -->
@@ -273,10 +277,10 @@
               <!-- Start event info -->
               <div class="container">
                 <div style="margin-bottom: 5%">
-                  <h2>New Nike Shoes</h2>
+                  <h2 id="item_name-m">New Nike Shoes</h2>
                   <div class="row">
                     <img class="col-3" style="width: 70px" src="../static/assets/downtime.png" />
-                    <h5 class="col-3">Sponsored by Nike</h5>
+                    <h5 class="col-3" id="sponsor-m">Sponsored by Nike</h5>
                   </div>
                 </div>
                 <!-- To swap  -->
@@ -286,7 +290,7 @@
                   </div>
                   <div class="col-6">
                     <h4>Details</h4>
-                    <p>
+                    <p id="description-m">
                       These new Nike shoes are comfortable and will last you a long time. Help your local community out by volunteering to obtain them.
                     </p>
                   </div>
@@ -299,7 +303,7 @@
                   <!-- swap -->
                   <div>
                     <h4>Item Cost:
-                      <r style="font-weight: lighter;;">10 Credit Hours</r>
+                      <r style="font-weight: lighter;;" id="hours_need-m">10 Credit Hours</r>
                     </h4>
                     <!-- <p>10 credit hours</p> -->
                   </div>
@@ -309,7 +313,7 @@
 
               <div class="modal-footer">
 
-                <button style="background-color: #16ade7; border-color: #16ade7;" type="button" class="btn btn-primary">Purchase Item</button>
+                <button style="background-color: #16ade7; border-color: #16ade7;" type="button" class="btn btn-primary" id="" >Purchase Item</button>
               </div>
             </div>
           </div>
