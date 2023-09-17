@@ -95,7 +95,7 @@
         <div class="col-4">
           <h4 style="color: rgb(23, 70, 98);">Lifetime Volunteer Hours</h4>
           {% if not current_user.total_hours: %}
-            <h3 class="tot-hours" style="color: #ff675b;">0 Hours</h3>
+            <h3 class="tot-hours" style="color: #ff675b;">25 Hours</h3>
           {%endif%}
           {% if current_user.total_hours: %}
             <h3 class="tot-hours" style="color: #ff675b;">{{current_user.total_hours}} Hours</h3>
@@ -178,7 +178,7 @@
     <div class="col-4">
       <h4 style="color: rgb(23, 70, 98) ;">Credit Hours</h4>
       {% if not current_user.credit_hours: %}
-      <h3 class="cred-hrs" style="color: #16ade7;"><em>0</em> hours</h3>
+      <h3 class="cred-hrs" style="color: #16ade7;"><em>25</em> hours</h3>
       {%endif%} {% if current_user.credit_hours: %}
       <h3 class="cred-hrs" style="color: #16ade7;"><em>current_user.credit_hours</em> hours</h3>
       {%endif%}
@@ -311,7 +311,11 @@
 
               <div class="modal-footer">
 
-                <button style="background-color: #16ade7; border-color: #16ade7;" type="button" class="btn btn-primary" id="item_id-m">Purchase Item</button>
+                <form>
+                  <input id="ID" name="ID" type="text">
+                  <button style="background-color: #16ade7; border-color: #16ade7;" type="submit" class="btn btn-primary" id="item_id-m">Purchase Item</button>
+                </form>
+
               </div>
             </div>
           </div>
