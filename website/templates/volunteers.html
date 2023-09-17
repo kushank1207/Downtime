@@ -191,10 +191,10 @@
           <ul class="list-group list-group-flush">
             {% for index, item in available_items: %}
             <li onclick="displayForm('itemForm', true)" class="list-group-item">{{ item.prize_name }}
-              <div class="display: none;" id="sponsor">{{ item.sponsor }}</div>
-              <div class="display: none;" id="description">{{ item.description }}</div>
-              <div class="display: none;" id="item_name">{{ item.prize_name }}</div>
-              <div class="display: none;" id="item_id">{{ item.id }}</div>
+              <div class="display: none;" class="sponsor">{{ item.sponsor }}</div>
+              <div class="display: none;" class="description">{{ item.description }}</div>
+              <div class="display: none;" class="item_name">{{ item.prize_name }}</div>
+              <div class="display: none;" class="item_id">{{ item.id }}</div>
             </li>
             {% endfor %}
           </ul>
