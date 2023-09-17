@@ -189,12 +189,12 @@
 
         <div class="card mb-3" style="max-width: 540px">
           <ul class="list-group list-group-flush">
-            {% for item in available_items: %}
+            {% for index, item in available_items: %}
             <li onclick="displayForm('itemForm', true)" class="list-group-item">{{ item.prize_name }}
-              <div class="display: none;" id="sponsor">{{ item.sponsor }}</div>
-              <div class="display: none;" id="description">{{ item.description }}</div>
-              <div class="display: none;" id="item_name">{{ item.prize_name }}</div>
-              <div class="display: none;" id="hours_need">{{ item.hours_need }}</div>
+              <div class="display: none;" id="sponsor-{{index}}">{{ item.sponsor }}</div>
+              <div class="display: none;" id="description-{{index}}">{{ item.description }}</div>
+              <div class="display: none;" id="item_name-{{index}}">{{ item.prize_name }}</div>
+              <div class="display: none;" id="hours_need-{{index}}">{{ item.hours_need }}</div>
             </li>
             {% endfor %}
           </ul>
